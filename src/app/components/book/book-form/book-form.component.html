@@ -1,0 +1,28 @@
+<div class="row container">
+    <div class="col-sm-6 col-sm-offset-2">
+        <h2> Enregistrer un nouveau livre</h2>
+        <form [formGroup]="bookForm" (ngSubmit)="onSaveBook()">
+            <div class="form-group">
+                <label for="title"> Titre</label>
+                <input type="text" id="title" class="form-control" formControlName="title">
+                <span *ngIf="formControls.title.touched && formControls.title.invalid" class="error">Il fautn entrer un
+                    titre pour un livre.</span>
+            </div>
+            <div class="form-group">
+                <label for="author"> Auteur</label>
+                <input type="text" id="title" class="form-control" formControlName="author">
+                <span *ngIf=" formControls.author.touched && formControls.author.invalid" class="error">Il fautn entrer
+                    le nom d'auteur.</span>
+            </div>
+            <div class="form-group">
+                <label for="synopsis"> synopsis </label>
+                <br>
+                <textarea id="author" class="form-control" formControlName="synopsis"></textarea>
+            </div>
+            <br>
+            <div class="">
+                <button class="btn btn-success" type="submit">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+</div>

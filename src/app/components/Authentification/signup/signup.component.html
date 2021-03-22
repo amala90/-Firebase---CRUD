@@ -1,0 +1,47 @@
+<div class="row container" style="margin-top:4em;">
+    <div class="col-md-4 mx-auto">
+        <h2> créer un compte</h2>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="userName">Nom</label>
+                <input type="text" id="userName" class="form-control" formControlName="userName">
+
+                <span *ngIf="formsControls.userName.touched && formsControls.userName.invalid" class="error"> in faut
+                    entrer un nom </span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" class="form-control" formControlName="email">
+
+                <span *ngIf="formsControls.email.touched && formsControls.email.invalid" class="error"> il faut entrer
+                    un
+                    email
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">mot de passe </label>
+                <input type="password" id="password" class="form-control" formControlName="password">
+                <span *ngIf="formsControls.password.touched && formsControls.password.hasError('required')"
+                    class="error">
+                    il faut entrer un mot de passe
+                </span>
+                <span *ngIf="formsControls.password.touched && formsControls.password.hasError('pattern')"
+                    class="error">
+                    le mot de passe doit contient au moins 6 caractères
+                </span>
+            </div>
+
+            <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-primary">
+                Créer un Compte
+
+
+            </button>
+
+        </form>
+
+
+    </div>
+
+</div>
